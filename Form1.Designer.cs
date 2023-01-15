@@ -31,19 +31,19 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.STIGslabel1 = new System.Windows.Forms.Label();
             this.STIGscheckedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.MitigationscheckBox1 = new System.Windows.Forms.CheckBox();
+            this.PSHardeningcheckBox2 = new System.Windows.Forms.CheckBox();
+            this.WDHardeningcheckBox3 = new System.Windows.Forms.CheckBox();
+            this.DbloatAppXcheckBox4 = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
-            this.checkBox7 = new System.Windows.Forms.CheckBox();
-            this.checkBox8 = new System.Windows.Forms.CheckBox();
-            this.checkBox9 = new System.Windows.Forms.CheckBox();
-            this.checkBox10 = new System.Windows.Forms.CheckBox();
-            this.checkBox11 = new System.Windows.Forms.CheckBox();
-            this.checkBox12 = new System.Windows.Forms.CheckBox();
+            this.SSLHardeningcheckBox5 = new System.Windows.Forms.CheckBox();
+            this.SMBHardeningcheckBox6 = new System.Windows.Forms.CheckBox();
+            this.RemoveBloatwarecheckBox7 = new System.Windows.Forms.CheckBox();
+            this.DisableTelemetrycheckBox8 = new System.Windows.Forms.CheckBox();
+            this.PrivacyConfigurationscheckBox9 = new System.Windows.Forms.CheckBox();
+            this.ImageCleanupcheckBox10 = new System.Windows.Forms.CheckBox();
+            this.NessusPIDcheckBox11 = new System.Windows.Forms.CheckBox();
+            this.SysmoncheckBox12 = new System.Windows.Forms.CheckBox();
             this.Executebutton1 = new System.Windows.Forms.Button();
             this.copyrightlabel = new System.Windows.Forms.Label();
             this.commandoutputbox = new System.Windows.Forms.TextBox();
@@ -83,53 +83,53 @@
             this.STIGscheckedListBox1.Size = new System.Drawing.Size(195, 220);
             this.STIGscheckedListBox1.TabIndex = 1;
             // 
-            // checkBox1
+            // MitigationscheckBox1
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Checked = true;
-            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(249, 78);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(86, 19);
-            this.checkBox1.TabIndex = 2;
-            this.checkBox1.Text = "Mitigations";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.MitigationscheckBox1.AutoSize = true;
+            this.MitigationscheckBox1.Checked = true;
+            this.MitigationscheckBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.MitigationscheckBox1.Location = new System.Drawing.Point(249, 78);
+            this.MitigationscheckBox1.Name = "MitigationscheckBox1";
+            this.MitigationscheckBox1.Size = new System.Drawing.Size(86, 19);
+            this.MitigationscheckBox1.TabIndex = 2;
+            this.MitigationscheckBox1.Text = "Mitigations";
+            this.MitigationscheckBox1.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // PSHardeningcheckBox2
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Checked = true;
-            this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox2.Location = new System.Drawing.Point(249, 103);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(143, 19);
-            this.checkBox2.TabIndex = 3;
-            this.checkBox2.Text = "PowerShell Hardening";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.PSHardeningcheckBox2.AutoSize = true;
+            this.PSHardeningcheckBox2.Checked = true;
+            this.PSHardeningcheckBox2.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.PSHardeningcheckBox2.Location = new System.Drawing.Point(249, 103);
+            this.PSHardeningcheckBox2.Name = "PSHardeningcheckBox2";
+            this.PSHardeningcheckBox2.Size = new System.Drawing.Size(143, 19);
+            this.PSHardeningcheckBox2.TabIndex = 3;
+            this.PSHardeningcheckBox2.Text = "PowerShell Hardening";
+            this.PSHardeningcheckBox2.UseVisualStyleBackColor = true;
             // 
-            // checkBox3
+            // WDHardeningcheckBox3
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Checked = true;
-            this.checkBox3.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox3.Location = new System.Drawing.Point(249, 128);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(185, 19);
-            this.checkBox3.TabIndex = 4;
-            this.checkBox3.Text = "Windows Defender Hardening";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.WDHardeningcheckBox3.AutoSize = true;
+            this.WDHardeningcheckBox3.Checked = true;
+            this.WDHardeningcheckBox3.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.WDHardeningcheckBox3.Location = new System.Drawing.Point(249, 128);
+            this.WDHardeningcheckBox3.Name = "WDHardeningcheckBox3";
+            this.WDHardeningcheckBox3.Size = new System.Drawing.Size(185, 19);
+            this.WDHardeningcheckBox3.TabIndex = 4;
+            this.WDHardeningcheckBox3.Text = "Windows Defender Hardening";
+            this.WDHardeningcheckBox3.UseVisualStyleBackColor = true;
             // 
-            // checkBox4
+            // DbloatAppXcheckBox4
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Checked = true;
-            this.checkBox4.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox4.Location = new System.Drawing.Point(249, 153);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(151, 19);
-            this.checkBox4.TabIndex = 5;
-            this.checkBox4.Text = "Debloat AppX Packages";
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.DbloatAppXcheckBox4.AutoSize = true;
+            this.DbloatAppXcheckBox4.Checked = true;
+            this.DbloatAppXcheckBox4.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.DbloatAppXcheckBox4.Location = new System.Drawing.Point(249, 153);
+            this.DbloatAppXcheckBox4.Name = "DbloatAppXcheckBox4";
+            this.DbloatAppXcheckBox4.Size = new System.Drawing.Size(151, 19);
+            this.DbloatAppXcheckBox4.TabIndex = 5;
+            this.DbloatAppXcheckBox4.Text = "Debloat AppX Packages";
+            this.DbloatAppXcheckBox4.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -141,105 +141,105 @@
             this.label1.Text = "Optional Configurations:";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // checkBox5
+            // SSLHardeningcheckBox5
             // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Checked = true;
-            this.checkBox5.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox5.Location = new System.Drawing.Point(249, 178);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(103, 19);
-            this.checkBox5.TabIndex = 7;
-            this.checkBox5.Text = "SSL Hardening";
-            this.checkBox5.UseVisualStyleBackColor = true;
+            this.SSLHardeningcheckBox5.AutoSize = true;
+            this.SSLHardeningcheckBox5.Checked = true;
+            this.SSLHardeningcheckBox5.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.SSLHardeningcheckBox5.Location = new System.Drawing.Point(249, 178);
+            this.SSLHardeningcheckBox5.Name = "SSLHardeningcheckBox5";
+            this.SSLHardeningcheckBox5.Size = new System.Drawing.Size(103, 19);
+            this.SSLHardeningcheckBox5.TabIndex = 7;
+            this.SSLHardeningcheckBox5.Text = "SSL Hardening";
+            this.SSLHardeningcheckBox5.UseVisualStyleBackColor = true;
             // 
-            // checkBox6
+            // SMBHardeningcheckBox6
             // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Checked = true;
-            this.checkBox6.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox6.Location = new System.Drawing.Point(249, 203);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(109, 19);
-            this.checkBox6.TabIndex = 8;
-            this.checkBox6.Text = "SMB Hardening";
-            this.checkBox6.UseVisualStyleBackColor = true;
+            this.SMBHardeningcheckBox6.AutoSize = true;
+            this.SMBHardeningcheckBox6.Checked = true;
+            this.SMBHardeningcheckBox6.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.SMBHardeningcheckBox6.Location = new System.Drawing.Point(249, 203);
+            this.SMBHardeningcheckBox6.Name = "SMBHardeningcheckBox6";
+            this.SMBHardeningcheckBox6.Size = new System.Drawing.Size(109, 19);
+            this.SMBHardeningcheckBox6.TabIndex = 8;
+            this.SMBHardeningcheckBox6.Text = "SMB Hardening";
+            this.SMBHardeningcheckBox6.UseVisualStyleBackColor = true;
             // 
-            // checkBox7
+            // RemoveBloatwarecheckBox7
             // 
-            this.checkBox7.AutoSize = true;
-            this.checkBox7.Checked = true;
-            this.checkBox7.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox7.Location = new System.Drawing.Point(249, 228);
-            this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(124, 19);
-            this.checkBox7.TabIndex = 9;
-            this.checkBox7.Text = "Remove Bloatware";
-            this.checkBox7.UseVisualStyleBackColor = true;
+            this.RemoveBloatwarecheckBox7.AutoSize = true;
+            this.RemoveBloatwarecheckBox7.Checked = true;
+            this.RemoveBloatwarecheckBox7.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.RemoveBloatwarecheckBox7.Location = new System.Drawing.Point(249, 228);
+            this.RemoveBloatwarecheckBox7.Name = "RemoveBloatwarecheckBox7";
+            this.RemoveBloatwarecheckBox7.Size = new System.Drawing.Size(124, 19);
+            this.RemoveBloatwarecheckBox7.TabIndex = 9;
+            this.RemoveBloatwarecheckBox7.Text = "Remove Bloatware";
+            this.RemoveBloatwarecheckBox7.UseVisualStyleBackColor = true;
             // 
-            // checkBox8
+            // DisableTelemetrycheckBox8
             // 
-            this.checkBox8.AutoSize = true;
-            this.checkBox8.Checked = true;
-            this.checkBox8.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox8.Location = new System.Drawing.Point(249, 253);
-            this.checkBox8.Name = "checkBox8";
-            this.checkBox8.Size = new System.Drawing.Size(118, 19);
-            this.checkBox8.TabIndex = 10;
-            this.checkBox8.Text = "Disable Telemetry";
-            this.checkBox8.UseVisualStyleBackColor = true;
-            this.checkBox8.CheckedChanged += new System.EventHandler(this.checkBox8_CheckedChanged);
+            this.DisableTelemetrycheckBox8.AutoSize = true;
+            this.DisableTelemetrycheckBox8.Checked = true;
+            this.DisableTelemetrycheckBox8.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.DisableTelemetrycheckBox8.Location = new System.Drawing.Point(249, 253);
+            this.DisableTelemetrycheckBox8.Name = "DisableTelemetrycheckBox8";
+            this.DisableTelemetrycheckBox8.Size = new System.Drawing.Size(118, 19);
+            this.DisableTelemetrycheckBox8.TabIndex = 10;
+            this.DisableTelemetrycheckBox8.Text = "Disable Telemetry";
+            this.DisableTelemetrycheckBox8.UseVisualStyleBackColor = true;
+            this.DisableTelemetrycheckBox8.CheckedChanged += new System.EventHandler(this.checkBox8_CheckedChanged);
             // 
-            // checkBox9
+            // PrivacyConfigurationscheckBox9
             // 
-            this.checkBox9.AutoSize = true;
-            this.checkBox9.Checked = true;
-            this.checkBox9.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox9.Location = new System.Drawing.Point(249, 279);
-            this.checkBox9.Name = "checkBox9";
-            this.checkBox9.Size = new System.Drawing.Size(146, 19);
-            this.checkBox9.TabIndex = 11;
-            this.checkBox9.Text = "Privacy Configurations";
-            this.checkBox9.UseVisualStyleBackColor = true;
-            this.checkBox9.CheckedChanged += new System.EventHandler(this.checkBox9_CheckedChanged);
+            this.PrivacyConfigurationscheckBox9.AutoSize = true;
+            this.PrivacyConfigurationscheckBox9.Checked = true;
+            this.PrivacyConfigurationscheckBox9.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.PrivacyConfigurationscheckBox9.Location = new System.Drawing.Point(249, 279);
+            this.PrivacyConfigurationscheckBox9.Name = "PrivacyConfigurationscheckBox9";
+            this.PrivacyConfigurationscheckBox9.Size = new System.Drawing.Size(146, 19);
+            this.PrivacyConfigurationscheckBox9.TabIndex = 11;
+            this.PrivacyConfigurationscheckBox9.Text = "Privacy Configurations";
+            this.PrivacyConfigurationscheckBox9.UseVisualStyleBackColor = true;
+            this.PrivacyConfigurationscheckBox9.CheckedChanged += new System.EventHandler(this.checkBox9_CheckedChanged);
             // 
-            // checkBox10
+            // ImageCleanupcheckBox10
             // 
-            this.checkBox10.AutoSize = true;
-            this.checkBox10.Checked = true;
-            this.checkBox10.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox10.Location = new System.Drawing.Point(453, 78);
-            this.checkBox10.Name = "checkBox10";
-            this.checkBox10.Size = new System.Drawing.Size(106, 19);
-            this.checkBox10.TabIndex = 12;
-            this.checkBox10.Text = "Image Cleanup";
-            this.checkBox10.UseVisualStyleBackColor = true;
-            this.checkBox10.CheckedChanged += new System.EventHandler(this.checkBox10_CheckedChanged);
+            this.ImageCleanupcheckBox10.AutoSize = true;
+            this.ImageCleanupcheckBox10.Checked = true;
+            this.ImageCleanupcheckBox10.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ImageCleanupcheckBox10.Location = new System.Drawing.Point(453, 78);
+            this.ImageCleanupcheckBox10.Name = "ImageCleanupcheckBox10";
+            this.ImageCleanupcheckBox10.Size = new System.Drawing.Size(106, 19);
+            this.ImageCleanupcheckBox10.TabIndex = 12;
+            this.ImageCleanupcheckBox10.Text = "Image Cleanup";
+            this.ImageCleanupcheckBox10.UseVisualStyleBackColor = true;
+            this.ImageCleanupcheckBox10.CheckedChanged += new System.EventHandler(this.checkBox10_CheckedChanged);
             // 
-            // checkBox11
+            // NessusPIDcheckBox11
             // 
-            this.checkBox11.AutoSize = true;
-            this.checkBox11.Checked = true;
-            this.checkBox11.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox11.Location = new System.Drawing.Point(453, 103);
-            this.checkBox11.Name = "checkBox11";
-            this.checkBox11.Size = new System.Drawing.Size(117, 19);
-            this.checkBox11.TabIndex = 13;
-            this.checkBox11.Text = "Nessus PID 63155";
-            this.checkBox11.UseVisualStyleBackColor = true;
-            this.checkBox11.CheckedChanged += new System.EventHandler(this.checkBox11_CheckedChanged);
+            this.NessusPIDcheckBox11.AutoSize = true;
+            this.NessusPIDcheckBox11.Checked = true;
+            this.NessusPIDcheckBox11.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.NessusPIDcheckBox11.Location = new System.Drawing.Point(453, 103);
+            this.NessusPIDcheckBox11.Name = "NessusPIDcheckBox11";
+            this.NessusPIDcheckBox11.Size = new System.Drawing.Size(117, 19);
+            this.NessusPIDcheckBox11.TabIndex = 13;
+            this.NessusPIDcheckBox11.Text = "Nessus PID 63155";
+            this.NessusPIDcheckBox11.UseVisualStyleBackColor = true;
+            this.NessusPIDcheckBox11.CheckedChanged += new System.EventHandler(this.checkBox11_CheckedChanged);
             // 
-            // checkBox12
+            // SysmoncheckBox12
             // 
-            this.checkBox12.AutoSize = true;
-            this.checkBox12.Checked = true;
-            this.checkBox12.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox12.Location = new System.Drawing.Point(453, 128);
-            this.checkBox12.Name = "checkBox12";
-            this.checkBox12.Size = new System.Drawing.Size(181, 19);
-            this.checkBox12.TabIndex = 14;
-            this.checkBox12.Text = "Install and Configure Sysmon";
-            this.checkBox12.UseVisualStyleBackColor = true;
+            this.SysmoncheckBox12.AutoSize = true;
+            this.SysmoncheckBox12.Checked = true;
+            this.SysmoncheckBox12.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.SysmoncheckBox12.Location = new System.Drawing.Point(453, 128);
+            this.SysmoncheckBox12.Name = "SysmoncheckBox12";
+            this.SysmoncheckBox12.Size = new System.Drawing.Size(181, 19);
+            this.SysmoncheckBox12.TabIndex = 14;
+            this.SysmoncheckBox12.Text = "Install and Configure Sysmon";
+            this.SysmoncheckBox12.UseVisualStyleBackColor = true;
             // 
             // Executebutton1
             // 
@@ -311,19 +311,19 @@
             this.Controls.Add(this.commandoutputbox);
             this.Controls.Add(this.copyrightlabel);
             this.Controls.Add(this.Executebutton1);
-            this.Controls.Add(this.checkBox12);
-            this.Controls.Add(this.checkBox11);
-            this.Controls.Add(this.checkBox10);
-            this.Controls.Add(this.checkBox9);
-            this.Controls.Add(this.checkBox8);
-            this.Controls.Add(this.checkBox7);
-            this.Controls.Add(this.checkBox6);
-            this.Controls.Add(this.checkBox5);
+            this.Controls.Add(this.SysmoncheckBox12);
+            this.Controls.Add(this.NessusPIDcheckBox11);
+            this.Controls.Add(this.ImageCleanupcheckBox10);
+            this.Controls.Add(this.PrivacyConfigurationscheckBox9);
+            this.Controls.Add(this.DisableTelemetrycheckBox8);
+            this.Controls.Add(this.RemoveBloatwarecheckBox7);
+            this.Controls.Add(this.SMBHardeningcheckBox6);
+            this.Controls.Add(this.SSLHardeningcheckBox5);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.checkBox4);
-            this.Controls.Add(this.checkBox3);
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.DbloatAppXcheckBox4);
+            this.Controls.Add(this.WDHardeningcheckBox3);
+            this.Controls.Add(this.PSHardeningcheckBox2);
+            this.Controls.Add(this.MitigationscheckBox1);
             this.Controls.Add(this.STIGscheckedListBox1);
             this.Controls.Add(this.STIGslabel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -339,19 +339,19 @@
 
         private Label STIGslabel1;
         private CheckedListBox STIGscheckedListBox1;
-        private CheckBox checkBox1;
-        private CheckBox checkBox2;
-        private CheckBox checkBox3;
-        private CheckBox checkBox4;
+        private CheckBox MitigationscheckBox1;
+        private CheckBox PSHardeningcheckBox2;
+        private CheckBox WDHardeningcheckBox3;
+        private CheckBox DbloatAppXcheckBox4;
         private Label label1;
-        private CheckBox checkBox5;
-        private CheckBox checkBox6;
-        private CheckBox checkBox7;
-        private CheckBox checkBox8;
-        private CheckBox checkBox9;
-        private CheckBox checkBox10;
-        private CheckBox checkBox11;
-        private CheckBox checkBox12;
+        private CheckBox SSLHardeningcheckBox5;
+        private CheckBox SMBHardeningcheckBox6;
+        private CheckBox RemoveBloatwarecheckBox7;
+        private CheckBox DisableTelemetrycheckBox8;
+        private CheckBox PrivacyConfigurationscheckBox9;
+        private CheckBox ImageCleanupcheckBox10;
+        private CheckBox NessusPIDcheckBox11;
+        private CheckBox SysmoncheckBox12;
         private Button Executebutton1;
         private Label copyrightlabel;
         private TextBox commandoutputbox;

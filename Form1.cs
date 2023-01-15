@@ -8,6 +8,10 @@ namespace Windows_Optimize_Harden_Debloat
         {
             InitializeComponent();
             stopbutton.Enabled = false;
+            for (int i = 0; i < STIGscheckedListBox1.Items.Count; i++)
+            {
+                STIGscheckedListBox1.SetItemChecked(i, true);
+            }
         }
         private void Executebutton1_Click(object sender, EventArgs e)
         {
@@ -41,7 +45,6 @@ namespace Windows_Optimize_Harden_Debloat
                     process.StartInfo.UseShellExecute = false;
                     process.StartInfo.CreateNoWindow = true;
                     process.Start();
-
                     while (!process.StandardOutput.EndOfStream)
                     {
                         string output = process.StandardOutput.ReadLine();
@@ -50,13 +53,21 @@ namespace Windows_Optimize_Harden_Debloat
                             this.Invoke(new Action(() =>
                             {
                                 commandoutputbox.AppendText(output + Environment.NewLine);
-                                commandoutputbox.SelectionStart = commandoutputbox.Text.Length;
-                                commandoutputbox.ScrollToCaret();
                             }));
                         }
-                        Thread.Sleep(100);
+                        else
+                        {
+                            break;
+                        }
                     }
-
+                    if (!_stopRequested)
+                    {
+                        this.Invoke(new Action(() =>
+                        {
+                            commandoutputbox.SelectionStart = commandoutputbox.Text.Length;
+                            commandoutputbox.ScrollToCaret();
+                        }));
+                    }
                     process.WaitForExit();
                     Invoke(new Action(() => Executebutton1.Enabled = true));
                     Invoke(new Action(() => stopbutton.Enabled = false));
@@ -68,12 +79,10 @@ namespace Windows_Optimize_Harden_Debloat
             }
         }
 
-
         private string GenerateCommand()
         {
-            return "Get-Process";
+            return "Get-Location";
         }
-
         private void label1_Click(object sender, EventArgs e)
         {
 

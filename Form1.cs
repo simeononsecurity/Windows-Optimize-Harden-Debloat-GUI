@@ -12,6 +12,22 @@ namespace Windows_Optimize_Harden_Debloat
             {
                 STIGscheckedListBox1.SetItemChecked(i, true);
             }
+            for (int i = 0; i < SoScheckedListBox1.Items.Count; i++)
+            {
+                SoScheckedListBox1.SetItemChecked(i, true);
+            }
+            for (int i = 0; i < SoScheckedListBox2.Items.Count; i++)
+            {
+                SoScheckedListBox2.SetItemChecked(i, true);
+            }
+            for (int i = 0; i < SoScheckedListBox3.Items.Count; i++)
+            {
+                SoScheckedListBox3.SetItemChecked(i, true);
+            }
+            for (int i = 0; i < SoScheckedListBox4.Items.Count; i++)
+            {
+                SoScheckedListBox4.SetItemChecked(i, true);
+            }
         }
         private void Executebutton1_Click(object sender, EventArgs e)
         {
@@ -40,10 +56,11 @@ namespace Windows_Optimize_Harden_Debloat
                 using (Process process = new Process())
                 {
                     process.StartInfo.FileName = "powershell.exe";
-                    process.StartInfo.Arguments = "-Command " + command;
+                    process.StartInfo.Arguments = "-file  "+ command;
                     process.StartInfo.RedirectStandardOutput = true;
                     process.StartInfo.UseShellExecute = false;
                     process.StartInfo.CreateNoWindow = true;
+                    process.StartInfo.Verb = "runas";
                     process.Start();
                     while (!process.StandardOutput.EndOfStream)
                     {
@@ -81,7 +98,7 @@ namespace Windows_Optimize_Harden_Debloat
 
         private string GenerateCommand()
         {
-            return "Get-Location";
+            return "\"C:\\Users\\Simeon\\Documents\\GitHub\\Windows-Optimize-Harden-Debloat\\sos-optimize-windows.ps1\"";
         }
         private void label1_Click(object sender, EventArgs e)
         {

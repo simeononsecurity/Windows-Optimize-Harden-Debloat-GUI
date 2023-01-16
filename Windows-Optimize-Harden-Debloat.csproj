@@ -8,6 +8,7 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <ApplicationIcon>sosavatar.ico</ApplicationIcon>
+    <ApplicationManifest>Windows-Optimize-Harden-Debloat.exe.manifest</ApplicationManifest>
   </PropertyGroup>
 
   <ItemGroup>

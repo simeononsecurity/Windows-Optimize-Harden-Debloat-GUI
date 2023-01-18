@@ -48,26 +48,26 @@
             this.Edge = new System.Windows.Forms.CheckBox();
             this.IE11 = new System.Windows.Forms.CheckBox();
             this.Chrome = new System.Windows.Forms.CheckBox();
-            this.Firefox = new System.Windows.Forms.CheckBox();
+            this.FireFox = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.Privacy = new System.Windows.Forms.CheckBox();
-            this.ClearGPOs = new System.Windows.Forms.CheckBox();
-            this.Bloatware = new System.Windows.Forms.CheckBox();
-            this.SysmonConfig = new System.Windows.Forms.CheckBox();
-            this.NessusPID = new System.Windows.Forms.CheckBox();
-            this.BrowserConfig = new System.Windows.Forms.CheckBox();
-            this.UpdateOptimizations = new System.Windows.Forms.CheckBox();
+            this.cleargpos = new System.Windows.Forms.CheckBox();
+            this.removebloatware = new System.Windows.Forms.CheckBox();
+            this.sysmon = new System.Windows.Forms.CheckBox();
+            this.nessusPID = new System.Windows.Forms.CheckBox();
+            this.sosbrowsers = new System.Windows.Forms.CheckBox();
+            this.updatemanagement = new System.Windows.Forms.CheckBox();
             this.Mitigations = new System.Windows.Forms.CheckBox();
-            this.WindowsUpdates = new System.Windows.Forms.CheckBox();
+            this.installupdates = new System.Windows.Forms.CheckBox();
             this.ApplockerHardening = new System.Windows.Forms.CheckBox();
-            this.Compression = new System.Windows.Forms.CheckBox();
+            this.diskcompression = new System.Windows.Forms.CheckBox();
             this.ImageCleanup = new System.Windows.Forms.CheckBox();
             this.BitlockerHardening = new System.Windows.Forms.CheckBox();
-            this.DeviceGuard = new System.Windows.Forms.CheckBox();
-            this.EMETHardening = new System.Windows.Forms.CheckBox();
-            this.PowerShellHardening = new System.Windows.Forms.CheckBox();
-            this.Telemetry = new System.Windows.Forms.CheckBox();
+            this.deviceguard = new System.Windows.Forms.CheckBox();
+            this.emet = new System.Windows.Forms.CheckBox();
+            this.PSHardening = new System.Windows.Forms.CheckBox();
+            this.disabletelemetry = new System.Windows.Forms.CheckBox();
             this.SMBHardening = new System.Windows.Forms.CheckBox();
             this.DefenderHardening = new System.Windows.Forms.CheckBox();
             this.CheckAllBx = new System.Windows.Forms.CheckBox();
@@ -183,7 +183,7 @@
             this.panel1.Controls.Add(this.Edge);
             this.panel1.Controls.Add(this.IE11);
             this.panel1.Controls.Add(this.Chrome);
-            this.panel1.Controls.Add(this.Firefox);
+            this.panel1.Controls.Add(this.FireFox);
             this.panel1.Controls.Add(this.Adobe);
             this.panel1.Location = new System.Drawing.Point(0, 22);
             this.panel1.Name = "panel1";
@@ -310,17 +310,17 @@
             this.Chrome.UseVisualStyleBackColor = true;
             this.Chrome.CheckedChanged += new System.EventHandler(this.Custom_CheckedChanged);
             // 
-            // Firefox
+            // FireFox
             // 
-            this.Firefox.AutoSize = true;
-            this.Firefox.Location = new System.Drawing.Point(2, 25);
-            this.Firefox.Margin = new System.Windows.Forms.Padding(2);
-            this.Firefox.Name = "Firefox";
-            this.Firefox.Size = new System.Drawing.Size(62, 19);
-            this.Firefox.TabIndex = 26;
-            this.Firefox.Text = "Firefox";
-            this.Firefox.UseVisualStyleBackColor = true;
-            this.Firefox.CheckedChanged += new System.EventHandler(this.Custom_CheckedChanged);
+            this.FireFox.AutoSize = true;
+            this.FireFox.Location = new System.Drawing.Point(2, 25);
+            this.FireFox.Margin = new System.Windows.Forms.Padding(2);
+            this.FireFox.Name = "FireFox";
+            this.FireFox.Size = new System.Drawing.Size(62, 19);
+            this.FireFox.TabIndex = 26;
+            this.FireFox.Text = "Firefox";
+            this.FireFox.UseVisualStyleBackColor = true;
+            this.FireFox.CheckedChanged += new System.EventHandler(this.Custom_CheckedChanged);
             // 
             // groupBox2
             // 
@@ -339,22 +339,22 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.AutoScroll = true;
             this.panel2.Controls.Add(this.Privacy);
-            this.panel2.Controls.Add(this.ClearGPOs);
-            this.panel2.Controls.Add(this.Bloatware);
-            this.panel2.Controls.Add(this.SysmonConfig);
-            this.panel2.Controls.Add(this.NessusPID);
-            this.panel2.Controls.Add(this.BrowserConfig);
-            this.panel2.Controls.Add(this.UpdateOptimizations);
+            this.panel2.Controls.Add(this.cleargpos);
+            this.panel2.Controls.Add(this.removebloatware);
+            this.panel2.Controls.Add(this.sysmon);
+            this.panel2.Controls.Add(this.nessusPID);
+            this.panel2.Controls.Add(this.sosbrowsers);
+            this.panel2.Controls.Add(this.updatemanagement);
             this.panel2.Controls.Add(this.Mitigations);
-            this.panel2.Controls.Add(this.WindowsUpdates);
+            this.panel2.Controls.Add(this.installupdates);
             this.panel2.Controls.Add(this.ApplockerHardening);
-            this.panel2.Controls.Add(this.Compression);
+            this.panel2.Controls.Add(this.diskcompression);
             this.panel2.Controls.Add(this.ImageCleanup);
             this.panel2.Controls.Add(this.BitlockerHardening);
-            this.panel2.Controls.Add(this.DeviceGuard);
-            this.panel2.Controls.Add(this.EMETHardening);
-            this.panel2.Controls.Add(this.PowerShellHardening);
-            this.panel2.Controls.Add(this.Telemetry);
+            this.panel2.Controls.Add(this.deviceguard);
+            this.panel2.Controls.Add(this.emet);
+            this.panel2.Controls.Add(this.PSHardening);
+            this.panel2.Controls.Add(this.disabletelemetry);
             this.panel2.Controls.Add(this.SMBHardening);
             this.panel2.Controls.Add(this.DefenderHardening);
             this.panel2.Location = new System.Drawing.Point(0, 24);
@@ -374,77 +374,77 @@
             this.Privacy.UseVisualStyleBackColor = true;
             this.Privacy.CheckedChanged += new System.EventHandler(this.Custom_CheckedChanged);
             // 
-            // ClearGPOs
+            // cleargpos
             // 
-            this.ClearGPOs.AutoSize = true;
-            this.ClearGPOs.Location = new System.Drawing.Point(5, 2);
-            this.ClearGPOs.Margin = new System.Windows.Forms.Padding(2);
-            this.ClearGPOs.Name = "ClearGPOs";
-            this.ClearGPOs.Size = new System.Drawing.Size(129, 19);
-            this.ClearGPOs.TabIndex = 26;
-            this.ClearGPOs.Text = "Clear Existing GPOs";
-            this.ClearGPOs.UseVisualStyleBackColor = true;
-            this.ClearGPOs.CheckedChanged += new System.EventHandler(this.Custom_CheckedChanged);
+            this.cleargpos.AutoSize = true;
+            this.cleargpos.Location = new System.Drawing.Point(5, 2);
+            this.cleargpos.Margin = new System.Windows.Forms.Padding(2);
+            this.cleargpos.Name = "cleargpos";
+            this.cleargpos.Size = new System.Drawing.Size(129, 19);
+            this.cleargpos.TabIndex = 26;
+            this.cleargpos.Text = "Clear Existing GPOs";
+            this.cleargpos.UseVisualStyleBackColor = true;
+            this.cleargpos.CheckedChanged += new System.EventHandler(this.Custom_CheckedChanged);
             // 
-            // Bloatware
+            // removebloatware
             // 
-            this.Bloatware.AutoSize = true;
-            this.Bloatware.Location = new System.Drawing.Point(211, 221);
-            this.Bloatware.Margin = new System.Windows.Forms.Padding(2);
-            this.Bloatware.Name = "Bloatware";
-            this.Bloatware.Size = new System.Drawing.Size(124, 19);
-            this.Bloatware.TabIndex = 44;
-            this.Bloatware.Text = "Remove Bloatware";
-            this.Bloatware.UseVisualStyleBackColor = true;
-            this.Bloatware.CheckedChanged += new System.EventHandler(this.Custom_CheckedChanged);
+            this.removebloatware.AutoSize = true;
+            this.removebloatware.Location = new System.Drawing.Point(211, 221);
+            this.removebloatware.Margin = new System.Windows.Forms.Padding(2);
+            this.removebloatware.Name = "removebloatware";
+            this.removebloatware.Size = new System.Drawing.Size(124, 19);
+            this.removebloatware.TabIndex = 44;
+            this.removebloatware.Text = "Remove Bloatware";
+            this.removebloatware.UseVisualStyleBackColor = true;
+            this.removebloatware.CheckedChanged += new System.EventHandler(this.Custom_CheckedChanged);
             // 
-            // SysmonConfig
+            // sysmon
             // 
-            this.SysmonConfig.AutoSize = true;
-            this.SysmonConfig.Location = new System.Drawing.Point(211, 25);
-            this.SysmonConfig.Margin = new System.Windows.Forms.Padding(2);
-            this.SysmonConfig.Name = "SysmonConfig";
-            this.SysmonConfig.Size = new System.Drawing.Size(150, 19);
-            this.SysmonConfig.TabIndex = 30;
-            this.SysmonConfig.Text = "Sysmon Configurations";
-            this.SysmonConfig.UseVisualStyleBackColor = true;
-            this.SysmonConfig.CheckedChanged += new System.EventHandler(this.Custom_CheckedChanged);
+            this.sysmon.AutoSize = true;
+            this.sysmon.Location = new System.Drawing.Point(211, 25);
+            this.sysmon.Margin = new System.Windows.Forms.Padding(2);
+            this.sysmon.Name = "sysmon";
+            this.sysmon.Size = new System.Drawing.Size(150, 19);
+            this.sysmon.TabIndex = 30;
+            this.sysmon.Text = "Sysmon Configurations";
+            this.sysmon.UseVisualStyleBackColor = true;
+            this.sysmon.CheckedChanged += new System.EventHandler(this.Custom_CheckedChanged);
             // 
-            // NessusPID
+            // nessusPID
             // 
-            this.NessusPID.AutoSize = true;
-            this.NessusPID.Location = new System.Drawing.Point(211, 177);
-            this.NessusPID.Margin = new System.Windows.Forms.Padding(2);
-            this.NessusPID.Name = "NessusPID";
-            this.NessusPID.Size = new System.Drawing.Size(117, 19);
-            this.NessusPID.TabIndex = 42;
-            this.NessusPID.Text = "Nessus PID 63155";
-            this.NessusPID.UseVisualStyleBackColor = true;
-            this.NessusPID.CheckedChanged += new System.EventHandler(this.Custom_CheckedChanged);
+            this.nessusPID.AutoSize = true;
+            this.nessusPID.Location = new System.Drawing.Point(211, 177);
+            this.nessusPID.Margin = new System.Windows.Forms.Padding(2);
+            this.nessusPID.Name = "nessusPID";
+            this.nessusPID.Size = new System.Drawing.Size(117, 19);
+            this.nessusPID.TabIndex = 42;
+            this.nessusPID.Text = "Nessus PID 63155";
+            this.nessusPID.UseVisualStyleBackColor = true;
+            this.nessusPID.CheckedChanged += new System.EventHandler(this.Custom_CheckedChanged);
             // 
-            // BrowserConfig
+            // sosbrowsers
             // 
-            this.BrowserConfig.AutoSize = true;
-            this.BrowserConfig.Location = new System.Drawing.Point(211, 2);
-            this.BrowserConfig.Margin = new System.Windows.Forms.Padding(2);
-            this.BrowserConfig.Name = "BrowserConfig";
-            this.BrowserConfig.Size = new System.Drawing.Size(150, 19);
-            this.BrowserConfig.TabIndex = 29;
-            this.BrowserConfig.Text = "Browser Configurations";
-            this.BrowserConfig.UseVisualStyleBackColor = true;
-            this.BrowserConfig.CheckedChanged += new System.EventHandler(this.Custom_CheckedChanged);
+            this.sosbrowsers.AutoSize = true;
+            this.sosbrowsers.Location = new System.Drawing.Point(211, 2);
+            this.sosbrowsers.Margin = new System.Windows.Forms.Padding(2);
+            this.sosbrowsers.Name = "sosbrowsers";
+            this.sosbrowsers.Size = new System.Drawing.Size(150, 19);
+            this.sosbrowsers.TabIndex = 29;
+            this.sosbrowsers.Text = "Browser Configurations";
+            this.sosbrowsers.UseVisualStyleBackColor = true;
+            this.sosbrowsers.CheckedChanged += new System.EventHandler(this.Custom_CheckedChanged);
             // 
-            // UpdateOptimizations
+            // updatemanagement
             // 
-            this.UpdateOptimizations.AutoSize = true;
-            this.UpdateOptimizations.Location = new System.Drawing.Point(211, 48);
-            this.UpdateOptimizations.Margin = new System.Windows.Forms.Padding(2);
-            this.UpdateOptimizations.Name = "UpdateOptimizations";
-            this.UpdateOptimizations.Size = new System.Drawing.Size(141, 19);
-            this.UpdateOptimizations.TabIndex = 31;
-            this.UpdateOptimizations.Text = "Update Optimizations";
-            this.UpdateOptimizations.UseVisualStyleBackColor = true;
-            this.UpdateOptimizations.CheckedChanged += new System.EventHandler(this.Custom_CheckedChanged);
+            this.updatemanagement.AutoSize = true;
+            this.updatemanagement.Location = new System.Drawing.Point(211, 48);
+            this.updatemanagement.Margin = new System.Windows.Forms.Padding(2);
+            this.updatemanagement.Name = "updatemanagement";
+            this.updatemanagement.Size = new System.Drawing.Size(141, 19);
+            this.updatemanagement.TabIndex = 31;
+            this.updatemanagement.Text = "Update Optimizations";
+            this.updatemanagement.UseVisualStyleBackColor = true;
+            this.updatemanagement.CheckedChanged += new System.EventHandler(this.Custom_CheckedChanged);
             // 
             // Mitigations
             // 
@@ -458,17 +458,17 @@
             this.Mitigations.UseVisualStyleBackColor = true;
             this.Mitigations.CheckedChanged += new System.EventHandler(this.Custom_CheckedChanged);
             // 
-            // WindowsUpdates
+            // installupdates
             // 
-            this.WindowsUpdates.AutoSize = true;
-            this.WindowsUpdates.Location = new System.Drawing.Point(5, 48);
-            this.WindowsUpdates.Margin = new System.Windows.Forms.Padding(2);
-            this.WindowsUpdates.Name = "WindowsUpdates";
-            this.WindowsUpdates.Size = new System.Drawing.Size(155, 19);
-            this.WindowsUpdates.TabIndex = 28;
-            this.WindowsUpdates.Text = "Install Windows Updates";
-            this.WindowsUpdates.UseVisualStyleBackColor = true;
-            this.WindowsUpdates.CheckedChanged += new System.EventHandler(this.Custom_CheckedChanged);
+            this.installupdates.AutoSize = true;
+            this.installupdates.Location = new System.Drawing.Point(5, 48);
+            this.installupdates.Margin = new System.Windows.Forms.Padding(2);
+            this.installupdates.Name = "installupdates";
+            this.installupdates.Size = new System.Drawing.Size(155, 19);
+            this.installupdates.TabIndex = 28;
+            this.installupdates.Text = "Install Windows Updates";
+            this.installupdates.UseVisualStyleBackColor = true;
+            this.installupdates.CheckedChanged += new System.EventHandler(this.Custom_CheckedChanged);
             // 
             // ApplockerHardening
             // 
@@ -482,17 +482,17 @@
             this.ApplockerHardening.UseVisualStyleBackColor = true;
             this.ApplockerHardening.CheckedChanged += new System.EventHandler(this.Custom_CheckedChanged);
             // 
-            // Compression
+            // diskcompression
             // 
-            this.Compression.AutoSize = true;
-            this.Compression.Location = new System.Drawing.Point(211, 131);
-            this.Compression.Margin = new System.Windows.Forms.Padding(2);
-            this.Compression.Name = "Compression";
-            this.Compression.Size = new System.Drawing.Size(159, 19);
-            this.Compression.TabIndex = 40;
-            this.Compression.Text = "Enable Disk Compression";
-            this.Compression.UseVisualStyleBackColor = true;
-            this.Compression.CheckedChanged += new System.EventHandler(this.Custom_CheckedChanged);
+            this.diskcompression.AutoSize = true;
+            this.diskcompression.Location = new System.Drawing.Point(211, 131);
+            this.diskcompression.Margin = new System.Windows.Forms.Padding(2);
+            this.diskcompression.Name = "diskcompression";
+            this.diskcompression.Size = new System.Drawing.Size(159, 19);
+            this.diskcompression.TabIndex = 40;
+            this.diskcompression.Text = "Enable Disk Compression";
+            this.diskcompression.UseVisualStyleBackColor = true;
+            this.diskcompression.CheckedChanged += new System.EventHandler(this.Custom_CheckedChanged);
             // 
             // ImageCleanup
             // 
@@ -518,53 +518,53 @@
             this.BitlockerHardening.UseVisualStyleBackColor = true;
             this.BitlockerHardening.CheckedChanged += new System.EventHandler(this.Custom_CheckedChanged);
             // 
-            // DeviceGuard
+            // deviceguard
             // 
-            this.DeviceGuard.AutoSize = true;
-            this.DeviceGuard.Location = new System.Drawing.Point(211, 108);
-            this.DeviceGuard.Margin = new System.Windows.Forms.Padding(2);
-            this.DeviceGuard.Name = "DeviceGuard";
-            this.DeviceGuard.Size = new System.Drawing.Size(134, 19);
-            this.DeviceGuard.TabIndex = 39;
-            this.DeviceGuard.Text = "Enable Device Guard";
-            this.DeviceGuard.UseVisualStyleBackColor = true;
-            this.DeviceGuard.CheckedChanged += new System.EventHandler(this.Custom_CheckedChanged);
+            this.deviceguard.AutoSize = true;
+            this.deviceguard.Location = new System.Drawing.Point(211, 108);
+            this.deviceguard.Margin = new System.Windows.Forms.Padding(2);
+            this.deviceguard.Name = "deviceguard";
+            this.deviceguard.Size = new System.Drawing.Size(134, 19);
+            this.deviceguard.TabIndex = 39;
+            this.deviceguard.Text = "Enable Device Guard";
+            this.deviceguard.UseVisualStyleBackColor = true;
+            this.deviceguard.CheckedChanged += new System.EventHandler(this.Custom_CheckedChanged);
             // 
-            // EMETHardening
+            // emet
             // 
-            this.EMETHardening.AutoSize = true;
-            this.EMETHardening.Location = new System.Drawing.Point(5, 129);
-            this.EMETHardening.Margin = new System.Windows.Forms.Padding(2);
-            this.EMETHardening.Name = "EMETHardening";
-            this.EMETHardening.Size = new System.Drawing.Size(114, 19);
-            this.EMETHardening.TabIndex = 34;
-            this.EMETHardening.Text = "EMET Hardening";
-            this.EMETHardening.UseVisualStyleBackColor = true;
-            this.EMETHardening.CheckedChanged += new System.EventHandler(this.Custom_CheckedChanged);
+            this.emet.AutoSize = true;
+            this.emet.Location = new System.Drawing.Point(5, 129);
+            this.emet.Margin = new System.Windows.Forms.Padding(2);
+            this.emet.Name = "emet";
+            this.emet.Size = new System.Drawing.Size(114, 19);
+            this.emet.TabIndex = 34;
+            this.emet.Text = "EMET Hardening";
+            this.emet.UseVisualStyleBackColor = true;
+            this.emet.CheckedChanged += new System.EventHandler(this.Custom_CheckedChanged);
             // 
-            // PowerShellHardening
+            // PSHardening
             // 
-            this.PowerShellHardening.AutoSize = true;
-            this.PowerShellHardening.Location = new System.Drawing.Point(5, 152);
-            this.PowerShellHardening.Margin = new System.Windows.Forms.Padding(2);
-            this.PowerShellHardening.Name = "PowerShellHardening";
-            this.PowerShellHardening.Size = new System.Drawing.Size(142, 19);
-            this.PowerShellHardening.TabIndex = 35;
-            this.PowerShellHardening.Text = "Powershell Hardening";
-            this.PowerShellHardening.UseVisualStyleBackColor = true;
-            this.PowerShellHardening.CheckedChanged += new System.EventHandler(this.Custom_CheckedChanged);
+            this.PSHardening.AutoSize = true;
+            this.PSHardening.Location = new System.Drawing.Point(5, 152);
+            this.PSHardening.Margin = new System.Windows.Forms.Padding(2);
+            this.PSHardening.Name = "PSHardening";
+            this.PSHardening.Size = new System.Drawing.Size(142, 19);
+            this.PSHardening.TabIndex = 35;
+            this.PSHardening.Text = "Powershell Hardening";
+            this.PSHardening.UseVisualStyleBackColor = true;
+            this.PSHardening.CheckedChanged += new System.EventHandler(this.Custom_CheckedChanged);
             // 
-            // Telemetry
+            // disabletelemetry
             // 
-            this.Telemetry.AutoSize = true;
-            this.Telemetry.Location = new System.Drawing.Point(211, 85);
-            this.Telemetry.Margin = new System.Windows.Forms.Padding(2);
-            this.Telemetry.Name = "Telemetry";
-            this.Telemetry.Size = new System.Drawing.Size(118, 19);
-            this.Telemetry.TabIndex = 38;
-            this.Telemetry.Text = "Disable Telemetry";
-            this.Telemetry.UseVisualStyleBackColor = true;
-            this.Telemetry.CheckedChanged += new System.EventHandler(this.Custom_CheckedChanged);
+            this.disabletelemetry.AutoSize = true;
+            this.disabletelemetry.Location = new System.Drawing.Point(211, 85);
+            this.disabletelemetry.Margin = new System.Windows.Forms.Padding(2);
+            this.disabletelemetry.Name = "disabletelemetry";
+            this.disabletelemetry.Size = new System.Drawing.Size(118, 19);
+            this.disabletelemetry.TabIndex = 38;
+            this.disabletelemetry.Text = "Disable Telemetry";
+            this.disabletelemetry.UseVisualStyleBackColor = true;
+            this.disabletelemetry.CheckedChanged += new System.EventHandler(this.Custom_CheckedChanged);
             // 
             // SMBHardening
             // 
@@ -648,28 +648,28 @@
         private CheckBox Edge;
         private CheckBox IE11;
         private CheckBox Chrome;
-        private CheckBox Firefox;
+        private CheckBox FireFox;
         private GroupBox groupBox2;
-        private CheckBox ClearGPOs;
+        private CheckBox cleargpos;
         private CheckBox Defender;
         private CheckBox Privacy;
-        private CheckBox NessusPID;
+        private CheckBox nessusPID;
         private CheckBox Mitigations;
-        private CheckBox Compression;
-        private CheckBox DeviceGuard;
-        private CheckBox Telemetry;
+        private CheckBox diskcompression;
+        private CheckBox deviceguard;
+        private CheckBox disabletelemetry;
         private CheckBox DefenderHardening;
         private CheckBox SMBHardening;
-        private CheckBox PowerShellHardening;
-        private CheckBox EMETHardening;
+        private CheckBox PSHardening;
+        private CheckBox emet;
         private CheckBox BitlockerHardening;
         private CheckBox ApplockerHardening;
-        private CheckBox UpdateOptimizations;
-        private CheckBox SysmonConfig;
-        private CheckBox BrowserConfig;
-        private CheckBox WindowsUpdates;
+        private CheckBox updatemanagement;
+        private CheckBox sysmon;
+        private CheckBox sosbrowsers;
+        private CheckBox installupdates;
         private CheckBox ImageCleanup;
-        private CheckBox Bloatware;
+        private CheckBox removebloatware;
         private Panel panel2;
         private CheckBox CheckAllBx;
     }

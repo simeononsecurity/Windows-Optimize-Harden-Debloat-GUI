@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Windows.Forms.VisualStyles;
+using System.Text;
 
 namespace Windows_Optimize_Harden_Debloat
 {
@@ -20,25 +21,25 @@ namespace Windows_Optimize_Harden_Debloat
             stopbutton.Enabled = true;
             _stopRequested = false;
 
-            string command = string.Join(' ', CommandParameters.Select(kvp => $"-{kvp.Key} {(kvp.Value ? "$True" : "$False")}"));
+            string command = string.Join(" ", CommandParameters.Select(kvp => $"-{kvp.Key} {(kvp.Value ? "$True" : "$False")}"));
 
-                //$"\"-Adobe {Adobe} -FireFox {FireFox} -Chrome {Chrome}" +
-                //$" -IE11 {IE11} -Edge {Edge} -DotNet {DotNet} -Office {Office}" +
-                //$" -OneDrive {OneDrive} -Java {Java} -Windows {Windows}" +
-                //$" -Defender {Defender} -Firewall {Firewall} -ClearGPOs {ClearGPOs}" +
-                //$" -ImageCleanup {ImageCleanup} -WindowsUpdates {WindowsUpdates}" +
-                //$" -ApplockerHardening {ApplockerHardening}" +
-                //$" -BitlockerHardening {BitlockerHardening} -EMETHardening {EMETHardening}" +
-                //$" -PowerShellHardening {PowerShellHardening} -SMBHardening {SMBHardening}" +
-                //$" -SSLHardening {SSLHardening} -DefenderHardening {DefenderHardening}" +
-                //$" -BrowserConfig {BrowserConfig} -SysmonConfig {SysmonConfig}" +
-                //$" -UpdateOptimizations {UpdateOptimizations} -Telemetry {Telemetry}" +
-                //$" -DeviceGuard {DeviceGuard} -Compression {Compression}" +
-                //$" -Mitigations {Mitigations} -NessusPID {NessusPID} -Privacy {Privacy}" +
-                //$" -Bloatware {Bloatware}\"";
+            //$"\"-Adobe {Adobe} -FireFox {FireFox} -Chrome {Chrome}" +
+            //$" -IE11 {IE11} -Edge {Edge} -DotNet {DotNet} -Office {Office}" +
+            //$" -OneDrive {OneDrive} -Java {Java} -Windows {Windows}" +
+            //$" -Defender {Defender} -Firewall {Firewall} -ClearGPOs {ClearGPOs}" +
+            //$" -ImageCleanup {ImageCleanup} -WindowsUpdates {WindowsUpdates}" +
+            //$" -ApplockerHardening {ApplockerHardening}" +
+            //$" -BitlockerHardening {BitlockerHardening} -EMETHardening {EMETHardening}" +
+            //$" -PowerShellHardening {PowerShellHardening} -SMBHardening {SMBHardening}" +
+            //$" -SSLHardening {SSLHardening} -DefenderHardening {DefenderHardening}" +
+            //$" -BrowserConfig {BrowserConfig} -SysmonConfig {SysmonConfig}" +
+            //$" -UpdateOptimizations {UpdateOptimizations} -Telemetry {Telemetry}" +
+            //$" -DeviceGuard {DeviceGuard} -Compression {Compression}" +
+            //$" -Mitigations {Mitigations} -NessusPID {NessusPID} -Privacy {Privacy}" +
+            //$" -Bloatware {Bloatware}\"";
 
             string script = ".\\sos-optimize-windows.ps1";
-            string argument = $"-File {script} {command}";
+            string argument = $"-command {script} \"{command}\"";
 
 
             _currentThread = new Thread(() => RunCommand(argument));
@@ -55,6 +56,7 @@ namespace Windows_Optimize_Harden_Debloat
             Executebutton1.Enabled = true;
             stopbutton.Enabled = false;
         }
+
         private void RunCommand(string argument)
         {
             try
@@ -68,14 +70,17 @@ namespace Windows_Optimize_Harden_Debloat
                     process.StartInfo.CreateNoWindow = true;
                     process.StartInfo.Verb = "runas";
                     process.Start();
+                    StringBuilder sb = new StringBuilder();
                     while (!process.StandardOutput.EndOfStream)
                     {
-                        string output = process.StandardOutput.ReadLine();
+                        int output = process.StandardOutput.Read();
                         if (!_stopRequested)
                         {
+                            sb.Append((char)output);
                             this.Invoke(new Action(() =>
                             {
-                                commandoutputbox.AppendText(output + Environment.NewLine);
+                                commandoutputbox.AppendText(sb.ToString());
+                                sb.Clear();
                             }));
                         }
                         else
@@ -92,13 +97,16 @@ namespace Windows_Optimize_Harden_Debloat
                         }));
                     }
                     process.WaitForExit();
-                    Invoke(new Action(() => Executebutton1.Enabled = true));
-                    Invoke(new Action(() => stopbutton.Enabled = false));
                 }
             }
-            catch (ThreadAbortException)
+            catch (Exception ex)
             {
-                // code to handle thread stop
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                Executebutton1.Enabled = true;
+                stopbutton.Enabled = false;
             }
         }
 

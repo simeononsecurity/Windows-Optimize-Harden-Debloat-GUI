@@ -65,7 +65,7 @@ namespace Windows_Optimize_Harden_Debloat
                 using (Process process = new Process())
                 {
                     process.StartInfo.FileName = "powershell.exe";
-                    process.StartInfo.Arguments = argument;
+                    process.StartInfo.Arguments = "-ExecutionPolicy Bypass " + argument;
                     process.StartInfo.RedirectStandardOutput = true;
                     process.StartInfo.UseShellExecute = false;
                     process.StartInfo.CreateNoWindow = true;

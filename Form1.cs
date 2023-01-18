@@ -2,6 +2,7 @@ using System.Diagnostics;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Windows.Forms.VisualStyles;
 using System.Text;
+using System;
 
 namespace Windows_Optimize_Harden_Debloat
 {
@@ -74,12 +75,12 @@ namespace Windows_Optimize_Harden_Debloat
                     while (!process.StandardOutput.EndOfStream)
                     {
                         int output = process.StandardOutput.Read();
-                        if (!_stopRequested)
+                        if (!_stopRequested && richTextBox1.IsHandleCreated)
                         {
                             sb.Append((char)output);
                             this.Invoke(new Action(() =>
                             {
-                                commandoutputbox.AppendText(sb.ToString());
+                                richTextBox1.AppendText(sb.ToString());
                                 sb.Clear();
                             }));
                         }
@@ -88,12 +89,12 @@ namespace Windows_Optimize_Harden_Debloat
                             break;
                         }
                     }
-                    if (!_stopRequested)
+                    if (!_stopRequested && richTextBox1.IsHandleCreated)
                     {
                         this.Invoke(new Action(() =>
                         {
-                            commandoutputbox.SelectionStart = commandoutputbox.Text.Length;
-                            commandoutputbox.ScrollToCaret();
+                            richTextBox1.SelectionStart = richTextBox1.Text.Length;
+                            richTextBox1.ScrollToCaret();
                         }));
                     }
                     process.WaitForExit();

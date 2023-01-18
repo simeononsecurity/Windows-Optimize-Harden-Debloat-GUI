@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.Executebutton1 = new System.Windows.Forms.Button();
             this.copyrightlabel = new System.Windows.Forms.Label();
-            this.commandoutputbox = new System.Windows.Forms.TextBox();
             this.commandoutputlabel = new System.Windows.Forms.Label();
             this.stopbutton = new System.Windows.Forms.Button();
             this.titlelabel = new System.Windows.Forms.Label();
@@ -71,6 +70,7 @@
             this.SMBHardening = new System.Windows.Forms.CheckBox();
             this.DefenderHardening = new System.Windows.Forms.CheckBox();
             this.CheckAllBx = new System.Windows.Forms.CheckBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -80,7 +80,7 @@
             // Executebutton1
             // 
             this.Executebutton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Executebutton1.Location = new System.Drawing.Point(463, 706);
+            this.Executebutton1.Location = new System.Drawing.Point(450, 721);
             this.Executebutton1.Name = "Executebutton1";
             this.Executebutton1.Size = new System.Drawing.Size(175, 65);
             this.Executebutton1.TabIndex = 15;
@@ -92,23 +92,11 @@
             // 
             this.copyrightlabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.copyrightlabel.AutoSize = true;
-            this.copyrightlabel.Location = new System.Drawing.Point(12, 759);
+            this.copyrightlabel.Location = new System.Drawing.Point(12, 774);
             this.copyrightlabel.Name = "copyrightlabel";
             this.copyrightlabel.Size = new System.Drawing.Size(146, 15);
             this.copyrightlabel.TabIndex = 16;
             this.copyrightlabel.Text = "© SimeonOnSecurity 2023";
-            // 
-            // commandoutputbox
-            // 
-            this.commandoutputbox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.commandoutputbox.Location = new System.Drawing.Point(9, 377);
-            this.commandoutputbox.Multiline = true;
-            this.commandoutputbox.Name = "commandoutputbox";
-            this.commandoutputbox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.commandoutputbox.Size = new System.Drawing.Size(619, 318);
-            this.commandoutputbox.TabIndex = 17;
             // 
             // commandoutputlabel
             // 
@@ -123,7 +111,7 @@
             // 
             this.stopbutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.stopbutton.Enabled = false;
-            this.stopbutton.Location = new System.Drawing.Point(282, 705);
+            this.stopbutton.Location = new System.Drawing.Point(269, 720);
             this.stopbutton.Name = "stopbutton";
             this.stopbutton.Size = new System.Drawing.Size(175, 65);
             this.stopbutton.TabIndex = 19;
@@ -601,18 +589,26 @@
             this.CheckAllBx.UseVisualStyleBackColor = true;
             this.CheckAllBx.CheckedChanged += new System.EventHandler(this.CheckAllBx_CheckedChanged);
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(12, 377);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(608, 337);
+            this.richTextBox1.TabIndex = 29;
+            this.richTextBox1.Text = "";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(650, 783);
+            this.ClientSize = new System.Drawing.Size(637, 798);
+            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.CheckAllBx);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.titlelabel);
             this.Controls.Add(this.stopbutton);
             this.Controls.Add(this.commandoutputlabel);
-            this.Controls.Add(this.commandoutputbox);
             this.Controls.Add(this.copyrightlabel);
             this.Controls.Add(this.Executebutton1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -632,7 +628,6 @@
         #endregion
         private Button Executebutton1;
         private Label copyrightlabel;
-        private TextBox commandoutputbox;
         private Label commandoutputlabel;
         private Button stopbutton;
         private Label titlelabel;
@@ -672,5 +667,6 @@
         private CheckBox removebloatware;
         private Panel panel2;
         private CheckBox CheckAllBx;
+        private RichTextBox richTextBox1;
     }
 }

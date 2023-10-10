@@ -1,12 +1,11 @@
 # Windows-Optimize-Harden-Debloat-GUI
 
-[![VirusTotal Scan](https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat-GUI/actions/workflows/virustotal.yml/badge.svg)](https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat-GUI/actions/workflows/virustotal.yml)
-
 C# Based GUI for [Windows-Optimize-Harden-Debloat](https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat)
 
+[![VirusTotal Scan](https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat-GUI/actions/workflows/virustotal.yml/badge.svg)](https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat-GUI/actions/workflows/virustotal.yml)
+[![MajorGeeks Approved](https://majorgeeks.com/images/mg_certified.gif)](https://www.majorgeeks.com/files/details/windows_optimize_harden_debloat_gui.html)
+
 ### GUI - Guided Install:
-
-
 
 Download the latest release [here](https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat-GUI/releases/), choose the options you want and hit execute.
 

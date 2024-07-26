@@ -1,5 +1,8 @@
 # Windows-Optimize-Harden-Debloat-GUI
 
+ [![Sponsor](https://img.shields.io/badge/Sponsor-Click%20Here-ff69b4)](https://github.com/sponsors/simeononsecurity) 
+
+
 C# Based GUI for [Windows-Optimize-Harden-Debloat](https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat)
 
 [![VirusTotal Scan](https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat-GUI/actions/workflows/virustotal.yml/badge.svg)](https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat-GUI/actions/workflows/virustotal.yml)

@@ -1,27 +1,38 @@
-# Windows-Optimize-Harden-Debloat-GUI
+# Windows Optimize Harden Debloat GUI
 
- [![Sponsor](https://img.shields.io/badge/Sponsor-Click%20Here-ff69b4)](https://github.com/sponsors/simeononsecurity) 
+A Windows interface for inspecting and running a local copy of the [hardening script](https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat).
 
+## Requirements
 
-C# Based GUI for [Windows-Optimize-Harden-Debloat](https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat)
+- Windows with Windows PowerShell 5.1.
+- .NET 10 Desktop Runtime, or build a self-contained Windows release.
+- Administrator privileges, requested through the application manifest.
+- An extracted hardening-script release with its companion files.
 
-[![VirusTotal Scan](https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat-GUI/actions/workflows/virustotal.yml/badge.svg)](https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat-GUI/actions/workflows/virustotal.yml)
+## Use
 
-[![MajorGeeks Approved](https://majorgeeks.com/images/mg_certified.gif)](https://www.majorgeeks.com/files/details/windows_optimize_harden_debloat_gui.html)
+1. Select the local `sos-optimize-windows.ps1` file.
+2. Review options loaded from its parameter definitions. Script inspection parses the PowerShell syntax tree without executing the selected script.
+3. Select the required changes. Every option starts unchecked.
+4. Choose **Preview and run**, review the selected descriptions, then confirm.
+5. Review output, error output, and the process exit code. Verify effective Windows settings separately.
 
-### GUI - Guided Install:
+Every Boolean parameter is passed explicitly, including unchecked options. This prevents true defaults in the underlying script from enabling omitted options. Scripts with non-Boolean parameters are rejected. A hash check requires reloading options if the script changes after inspection.
 
-Download the latest release [here](https://github.com/simeononsecurity/Windows-Optimize-Harden-Debloat-GUI/releases/), choose the options you want and hit execute.
+The GUI does not download or silently replace the selected script. Review its origin and version before use. The preview shows selected categories, not an exact registry or policy diff. Recovery depends on the underlying script and your system backup.
 
-<img src="https://raw.githubusercontent.com/simeononsecurity/Windows-Optimize-Harden-Debloat/master/.github/images/WOHD-GUI.gif" alt="Example of Windows-Optimize-Harden-Debloat GUI Based Guided install">
+## Stop behavior
 
-<a href="https://simeononsecurity.ch" target="_blank" rel="noopener noreferrer">
-  <h2>Explore the World of Cybersecurity</h2>
-</a>
-<a href="https://simeononsecurity.ch" target="_blank" rel="noopener noreferrer">
-  <img src="https://simeononsecurity.ch/img/banner.png" alt="SimeonOnSecurity Logo" width="300" height="300">
-</a>
+**Stop process** terminates the PowerShell process and its process tree, drains output, and waits for exit before enabling another run. Completed configuration changes remain. Stopping is not rollback. Detached services or scheduled tasks created by the underlying script are outside the process tree.
 
-### Links:
-- #### [github.com/simeononsecurity](https://github.com/simeononsecurity)
-- #### [simeononsecurity.ch](https://simeononsecurity.ch)
+Closing the window during inspection or execution is blocked until the operation ends. UI updates stay on the UI thread. Standard output and standard error are read concurrently.
+
+## Build and tests
+
+```powershell
+dotnet build Windows-Optimize-Harden-Debloat.csproj
+dotnet run --project tests/Regression.csproj
+powershell -NoProfile -File tests/SchemaRegression.ps1
+```
+
+CI builds on Windows with .NET 10 and runs argument, schema, output, exit-code, and process-tree cancellation tests. The process tests use harmless child processes. They never execute a hardening script. A native GUI acceptance pass should select a fixture script, confirm unchecked defaults, inspect the preview, run, stop, and close before testing a real script in a disposable VM.

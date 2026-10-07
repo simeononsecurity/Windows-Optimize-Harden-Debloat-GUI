@@ -1,146 +1,88 @@
 using System.Diagnostics;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using System.Windows.Forms.VisualStyles;
-using System.Text;
-using System;
+using System.Text.Json;
 
-namespace Windows_Optimize_Harden_Debloat
+namespace Windows_Optimize_Harden_Debloat;
+
+public partial class Form1 : Form
 {
-    public partial class Form1 : Form
+    private ScriptSchema? schema;
+    private string? scriptPath;
+    private CancellationTokenSource? running;
+
+    public Form1() { InitializeComponent(); }
+
+    private async void SelectScript_Click(object? sender, EventArgs e)
     {
-        Dictionary<string,bool> CommandParameters = new Dictionary<string,bool>();
-
-        public Form1()
+        using var picker = new OpenFileDialog { Filter = "PowerShell scripts (*.ps1)|*.ps1", Title = "Select the extracted hardening script" };
+        if (picker.ShowDialog(this) != DialogResult.OK) return;
+        execute.Enabled = false;
+        selectScript.Enabled = false;
+        schema = null;
+        optionPanel.Controls.Clear();
+        running = new CancellationTokenSource();
+        try
         {
-            InitializeComponent();
-            CheckAllBx.Checked = true;
+            var info = new ProcessStartInfo("powershell.exe");
+            foreach (var arg in new[] { "-NoProfile", "-NonInteractive", "-ExecutionPolicy", "Bypass", "-File", Path.Combine(AppContext.BaseDirectory, "Read-ScriptOptions.ps1"), "-ScriptPath", picker.FileName })
+                info.ArgumentList.Add(arg);
+            RunResult result = await ScriptExecution.RunAsync(info, running.Token);
+            if (result.ExitCode != 0) throw new InvalidOperationException(result.Error);
+            schema = JsonSerializer.Deserialize<ScriptSchema>(result.Output, new JsonSerializerOptions { PropertyNameCaseInsensitive = true })
+                ?? throw new InvalidOperationException("No script options found.");
+            scriptPath = picker.FileName;
+            scriptLabel.Text = scriptPath;
+            foreach (var option in schema.Options)
+                optionPanel.Controls.Add(new CheckBox { Text = option.Description, Tag = option.Name, AutoSize = true, Checked = false, MaximumSize = new Size(840, 0) });
+            execute.Enabled = true;
         }
+        catch (Exception error) { MessageBox.Show(this, error.Message, "Script inspection failed"); }
+        finally { running.Dispose(); running = null; selectScript.Enabled = true; }
+    }
 
-        private void Executebutton1_Click(object sender, EventArgs e)
+    private async void Execute_Click(object? sender, EventArgs e)
+    {
+        if (schema is null || scriptPath is null || running is not null) return;
+        try
         {
-            Executebutton1.Enabled = false;
-            stopbutton.Enabled = true;
-            _stopRequested = false;
-
-            string command = string.Join(" ", CommandParameters.Select(kvp => $"-{kvp.Key} {(kvp.Value ? "$True" : "$False")}"));
-
-            //$"\"-Adobe {Adobe} -FireFox {FireFox} -Chrome {Chrome}" +
-            //$" -IE11 {IE11} -Edge {Edge} -DotNet {DotNet} -Office {Office}" +
-            //$" -OneDrive {OneDrive} -Java {Java} -Windows {Windows}" +
-            //$" -Defender {Defender} -Firewall {Firewall} -ClearGPOs {ClearGPOs}" +
-            //$" -ImageCleanup {ImageCleanup} -WindowsUpdates {WindowsUpdates}" +
-            //$" -ApplockerHardening {ApplockerHardening}" +
-            //$" -BitlockerHardening {BitlockerHardening} -EMETHardening {EMETHardening}" +
-            //$" -PowerShellHardening {PowerShellHardening} -SMBHardening {SMBHardening}" +
-            //$" -SSLHardening {SSLHardening} -DefenderHardening {DefenderHardening}" +
-            //$" -BrowserConfig {BrowserConfig} -SysmonConfig {SysmonConfig}" +
-            //$" -UpdateOptimizations {UpdateOptimizations} -Telemetry {Telemetry}" +
-            //$" -DeviceGuard {DeviceGuard} -Compression {Compression}" +
-            //$" -Mitigations {Mitigations} -NessusPID {NessusPID} -Privacy {Privacy}" +
-            //$" -Bloatware {Bloatware}\"";
-
-            string script = ".\\sos-optimize-windows.ps1";
-            string argument = $"-command {script} \"{command}\"";
-
-
-            _currentThread = new Thread(() => RunCommand(argument));
-            _currentThread.Start();
-            _stopRequested = false;
+            var selected = optionPanel.Controls.OfType<CheckBox>().Where(box => box.Checked)
+                .Select(box => (string)box.Tag!).ToHashSet(StringComparer.OrdinalIgnoreCase);
+            string command = ScriptExecution.BuildCommand(scriptPath, schema, selected);
+            string preview = "Selected changes:\n\n" + string.Join("\n", schema.Options.Where(option => selected.Contains(option.Name)).Select(option => option.Description))
+                + "\n\nAll unchecked options will be disabled. Stopping interrupts execution and does not undo completed changes. Continue?";
+            if (MessageBox.Show(this, preview, "Review changes", MessageBoxButtons.OKCancel) != DialogResult.OK) return;
+            output.Clear();
+            running = new CancellationTokenSource();
+            execute.Enabled = selectScript.Enabled = optionPanel.Enabled = false;
+            stop.Enabled = true;
+            var progress = new Progress<string>(text => { if (!IsDisposed) output.AppendText(text); });
+            var info = ScriptExecution.PowerShellCommand(command);
+            info.WorkingDirectory = Path.GetDirectoryName(scriptPath)!;
+            var result = await ScriptExecution.RunAsync(info, running.Token,
+                text => ((IProgress<string>)progress).Report(text),
+                text => ((IProgress<string>)progress).Report("[stderr] " + text));
+            output.AppendText(result.Cancelled ? "\nProcess stopped. Completed changes remain.\n" : $"\nProcess exited with code {result.ExitCode}. Review output and verify system settings.\n");
         }
-
-        private Thread _currentThread;
-        private bool _stopRequested = false;
-
-        private void stopbutton_Click(object sender, EventArgs e)
+        catch (Exception error) { MessageBox.Show(this, error.Message, "Execution error"); }
+        finally
         {
-            _stopRequested = true;
-            Executebutton1.Enabled = true;
-            stopbutton.Enabled = false;
+            running?.Dispose(); running = null;
+            execute.Enabled = selectScript.Enabled = optionPanel.Enabled = true;
+            stop.Enabled = false;
         }
+    }
 
-        private void RunCommand(string argument)
-        {
-            try
-            {
-                using (Process process = new Process())
-                {
-                    process.StartInfo.FileName = "powershell.exe";
-                    process.StartInfo.Arguments = "-ExecutionPolicy Bypass " + argument;
-                    process.StartInfo.RedirectStandardOutput = true;
-                    process.StartInfo.UseShellExecute = false;
-                    process.StartInfo.CreateNoWindow = true;
-                    process.StartInfo.Verb = "runas";
-                    process.Start();
-                    StringBuilder sb = new StringBuilder();
-                    while (!process.StandardOutput.EndOfStream)
-                    {
-                        int output = process.StandardOutput.Read();
-                        if (!_stopRequested && richTextBox1.IsHandleCreated)
-                        {
-                            sb.Append((char)output);
-                            this.Invoke(new Action(() =>
-                            {
-                                richTextBox1.AppendText(sb.ToString());
-                                sb.Clear();
-                            }));
-                        }
-                        else
-                        {
-                            break;
-                        }
-                    }
-                    if (!_stopRequested && richTextBox1.IsHandleCreated)
-                    {
-                        this.Invoke(new Action(() =>
-                        {
-                            richTextBox1.SelectionStart = richTextBox1.Text.Length;
-                            richTextBox1.ScrollToCaret();
-                        }));
-                    }
-                    process.WaitForExit();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                Executebutton1.Enabled = true;
-                stopbutton.Enabled = false;
-            }
-        }
+    private void Stop_Click(object? sender, EventArgs e)
+    {
+        if (running is null) return;
+        running.Cancel();
+        stop.Enabled = false;
+        output.AppendText("\nStopping the process tree...\n");
+    }
 
-        private void Custom_CheckedChanged(object sender, EventArgs e)
-        {
-            if (sender == null)
-                return;
-
-            string checkboxName = ((CheckBox)sender).Name;
-            bool isChecked = ((CheckBox)sender).Checked;
-
-            if (!CommandParameters.TryAdd(checkboxName, true))
-            {
-                CommandParameters[checkboxName] = isChecked;
-            }
-        }
-
-        private void CheckAllBx_CheckedChanged(object sender, EventArgs e)
-        {
-            if(sender != null && sender is CheckBox toggleChecker)
-            {
-                foreach (var control in panel2.Controls)
-                {
-                    if (control is CheckBox aCheckbox)
-                        aCheckbox.Checked = toggleChecker.Checked;
-                }
-                foreach (var control in panel1.Controls)
-                {
-                    if (control is CheckBox aCheckbox)
-                        aCheckbox.Checked = toggleChecker.Checked;
-                }
-            }
-            
-        }
+    private void ClosingForm(object? sender, FormClosingEventArgs e)
+    {
+        if (running is null) return;
+        e.Cancel = true;
+        MessageBox.Show(this, "Wait for script inspection or stop the running process before closing.");
     }
 }
